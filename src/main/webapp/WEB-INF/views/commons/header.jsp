@@ -38,9 +38,7 @@
                 </ul>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <%-- 로그인이 필요한 상태 --%>
                 <sec:authorize access="isAnonymous()">
-           
                 <li>
                     <button class="nav-link" formaction="/joinForm">joinForm</button>
                 </li>
@@ -48,7 +46,6 @@
                     <button class="nav-link" formaction="/loginForm">login Form</button>
                 </li>
                 </sec:authorize>
-                <%-- 로그인이 된 상태 --%>
                 <sec:authorize access="isAuthenticated()">
                 <li class="nav-link">
                     ID : ${userDetailsBean.username}, Name : ${userDetailsBean.memberName}, 
@@ -61,4 +58,4 @@
         </nav>
     </div>
 </form>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js.bootstrap.bundle.min.js"></script>

@@ -18,20 +18,14 @@ public class PrincipalUserService implements UserDetailsService {
     @Autowired
     UsersService usersService;
 
-
     @Override
-    // url /login 일때 spring scrutiry가 호출
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // query select with ID
         Map dataMap = new HashMap<>();
-        dataMap.put("USERNAME", username);
-        Object usernameObj = username;
+        dataMap.put("EMAIL", username);
         Map resultMap = (Map) usersService.selectByUIDWithAuths(dataMap);
 
-        // session 등록
         PrincipalUser principalUser = new PrincipalUser(resultMap);
 
         return principalUser;
     }
-    
 }
